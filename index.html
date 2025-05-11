@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Simple vs Past Continuous</title>
+  <style>
+    body { background-color: #111; color: #fff; font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+    h1 { font-size: 48px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 28px; color: #6db88f; margin-bottom: 20px; }
+    button {
+      background-color: #6db88f; color: white; border: none; padding: 10px 20px;
+      font-size: 16px; border-radius: 5px; cursor: pointer; margin: 10px;
+    }
+    .modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%;
+      height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
+    .modal-content {
+      background-color: #222; margin: 5% auto; padding: 30px; border: 1px solid #888;
+      width: 95%; max-width: 900px; color: white; text-align: center; border-radius: 10px;
+    }
+    .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+    .close:hover, .close:focus { color: white; text-decoration: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+<h1>Grammar</h1>
+<h2><a href="https://t.me/joinandgetinspired" style="color: white;">Join&GetInspired</a></h2>
+<h3>Past Simple vs Past Continuous — State & Dynamic Verbs</h3>
+
+<button onclick="document.getElementById('rulesModal').style.display='block'">Study the rules</button>
+<div class="modal" id="rulesModal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('rulesModal').style.display='none'">×</span>
+    
+
+<h3>📌 Past Simple vs Past Continuous</h3>
+<p>🔸 <strong>Past Simple</strong> используется для:</p>
+<ul style="text-align:left; display:inline-block;">
+  <li>– завершённых действий в прошлом: <strong>I watched a movie last night.</strong></li>
+  <li>– состояний в прошлом: <strong>She felt happy yesterday.</strong></li>
+</ul>
+<p>🔸 <strong>Past Continuous</strong> используется для:</p>
+<ul style="text-align:left; display:inline-block;">
+  <li>– длительного действия в определённый момент: <strong>I was studying at 8 p.m.</strong></li>
+  <li>– двух действий, когда одно прерывает другое: <strong>I was taking a shower when the phone rang.</strong></li>
+</ul>
+<p>💡 Глаголы состояния (<em>know, believe, have, be</em>) обычно не употребляются в Continuous: <strong>I knew the answer</strong>, но <strong>I was knowing</strong> – ❌.</p>
+<p>⚠️ Если вы не уверены — спросите себя: это действие или состояние?</p> Если вы не уверены — задайте себе вопрос: «Это было действие или состояние?»</p>
+
+    <p>Глаголы действия описывают процессы, глаголы состояния — чувства, восприятие, мнение, принадлежность.</p>
+    <p><strong>Past Continuous</strong> используется для длительных действий в прошлом.</p>
+    <p><strong>Past Simple</strong> — для завершённых действий или состояний.</p>
+    <p>Глаголы состояния обычно не употребляются в Continuous.</p>
+  </div>
+</div>
+
+<h2 style="margin-top: 60px;">🧠 Practice</h2>
+<p>Choose the correct form of the verb:</p>
+<div id="tasksContainer"></div>
+<script>
+const tasks = [["1. I ______ (ride) my bike when it started raining.", "rode", "was riding", false, "Действие в процессе — Past Continuous."], ["2. She ______ (close) the door after she came in.", "closed", "was closing", true, "Завершённое действие — Past Simple."], ["3. We ______ (explore) the forest all morning.", "explored", "were exploring", false, "Длительное действие — Past Continuous."], ["4. He ______ (drop) his phone while he ______ (run).", "dropped / was running", "was dropping / ran", true, "Одно действие прервано другим: он бежал (was running), когда уронил телефон (dropped)."], ["5. They ______ (sing) when the teacher entered the room.", "sang", "were singing", false, "Фоновое действие — Past Continuous."], ["6. I ______ (fix) my laptop yesterday evening.", "fixed", "was fixing", true, "Завершённое действие — Past Simple."], ["7. The kids ______ (laugh) loudly during the break.", "laughed", "were laughing", false, "Фоновый шум — Past Continuous."], ["8. You ______ (type) the report when the system crashed.", "typed", "were typing", false, "Длительное действие — Past Continuous."], ["9. We ______ (eat) pizza when the lights went off.", "ate", "were eating", false, "Процесс — Past Continuous."], ["10. She ______ (call) me three times yesterday.", "called", "was calling", true, "Повторяющееся завершённое действие — Past Simple."], ["11. I ______ (drive) to work when I saw an accident.", "drove", "was driving", false, "Длительное действие — Past Continuous."], ["12. He ______ (read) a book before bed.", "read", "was reading", true, "Завершённое действие — Past Simple."], ["13. They ______ (argue) when the manager walked in.", "argued", "were arguing", false, "Фоновое действие — Past Continuous."], ["14. I ______ (answer) emails all morning.", "answered", "was answering", false, "Длительное действие — Past Continuous."], ["15. She ______ (carry) a box when she tripped.", "carried", "was carrying", false, "Действие в процессе — Past Continuous."], ["16. We ______ (leave) just as they arrived.", "left", "were leaving", true, "Однократное завершённое действие — Past Simple."], ["17. He ______ (paint) the fence when it started to rain.", "painted", "was painting", false, "Процесс — Past Continuous."], ["18. The students ______ (write) their tests in silence.", "wrote", "were writing", true, "Завершённое действие — Past Simple."], ["19. I ______ (watch) the movie when the power went out.", "watched", "was watching", false, "Действие в процессе — Past Continuous."], ["20. They ______ (celebrate) her birthday on Saturday.", "celebrated", "were celebrating", true, "Однократное событие — Past Simple."], ["21. She ______ (dance) when she twisted her ankle.", "danced", "was dancing", false, "Фоновое действие — Past Continuous."], ["22. We ______ (travel) to France last summer.", "travelled", "were travelling", true, "Завершённое действие — Past Simple."], ["23. He ______ (try) to fix the radio when it exploded.", "tried", "was trying", false, "Фоновое действие — Past Continuous."], ["24. I ______ (finish) my homework before dinner.", "finished", "was finishing", true, "Завершённое действие — Past Simple."], ["25. She ______ (jog) through the park when she saw a deer.", "jogged", "was jogging", false, "Действие в процессе — Past Continuous."]];
+
+tasks.forEach(([question, option1, option2, isFirstCorrect, explanation]) => {
+  const container = document.createElement("div");
+  container.style = "margin: 20px auto; font-size: 18px; max-width: 700px;";
+  container.innerHTML = `
+    <p>${question}</p>
+    <button onclick="checkAnswer(this, ${isFirstCorrect}, '${isFirstCorrect ? '' : explanation}')">${option1}</button>
+    <button onclick="checkAnswer(this, ${!isFirstCorrect}, '${!isFirstCorrect ? '' : explanation}')">${option2}</button>
+  `;
+  document.getElementById("tasksContainer").appendChild(container);
+});
+
+function checkAnswer(button, isCorrect, explanation = '') {
+  const buttons = button.parentElement.querySelectorAll("button");
+  buttons.forEach(btn => btn.disabled = true);
+  if (isCorrect) {
+    button.style.backgroundColor = '#00cc66';
+    button.style.color = 'white';
+  } else {
+    button.style.backgroundColor = '#ff3333';
+    button.style.color = 'white';
+    if (explanation && !button.parentElement.querySelector('.explanation')) {
+      const p = document.createElement("p");
+      p.className = 'explanation';
+      p.innerText = "❗ " + explanation;
+      p.style.color = "#ffa07a";
+      p.style.marginTop = "10px";
+      button.parentElement.appendChild(p);
+    }
+  }
+}
+window.onclick = function(event) {
+  const modal = document.getElementById('rulesModal');
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
